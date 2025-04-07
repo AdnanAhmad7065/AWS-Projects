@@ -8,8 +8,6 @@ This project demonstrates how to design and deploy a secure and scalable **web a
 
 ![Architecture Diagram](architecture-diagram.png)
 
-> *(Make sure this image is added to your GitHub repo with the same file name)*
-
 ---
 
 ## 🚀 Project Features
@@ -89,7 +87,7 @@ Once inside the **Private EC2 Instance**:
 echo "<html><body><h1>Hello from my Python Web App!</h1></body></html>" > index.html
 python3 -m http.server 8000
 
-### 5. 📌 Application Load Balancer Setup
+#### 5. 📌 Application Load Balancer Setup
 
 Now expose your private EC2s to the internet securely using an Application Load Balancer.
 
