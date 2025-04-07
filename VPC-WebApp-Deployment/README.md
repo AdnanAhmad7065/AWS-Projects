@@ -89,44 +89,35 @@ Once inside the **Private EC2 Instance**:
 echo "<html><body><h1>Hello from my Python Web App!</h1></body></html>" > index.html
 python3 -m http.server 8000
 
-### 5. 📡 Application Load Balancer Setup
+### 5. 📌 Application Load Balancer Setup
+
 Now expose your private EC2s to the internet securely using an Application Load Balancer.
 
-🧷 Steps:
-Go to EC2 → Load Balancers → Create Load Balancer
+🔹 Steps:
 
-Choose Application Load Balancer
+➡️ Go to **EC2 → Load Balancers → Create Load Balancer**
 
-Name: my-app-lb
+➡️ Choose **Application Load Balancer**
 
-Scheme: Internet-facing
-
-Listeners: Add HTTP on port 80
-
-Availability Zones: Select both public subnets
-
-Security Group: Allow port 80 (HTTP) from anywhere
+- Name: `my-app-lb`
+- Scheme: `Internet-facing`
+- Listeners: Add `HTTP` on port `80`
+- Availability Zones: Select **both public subnets**
+- Security Group: Allow port **80 (HTTP)** from **anywhere**
 
 🎯 Create Target Group:
-Name: my-app-target-group
 
-Target type: Instance
+- Name: `my-app-target-group`
+- Target type: `Instance`
+- Protocol: `HTTP`
+- Port: `8000`
 
-Protocol: HTTP
+➡️ Register your EC2 instances (launched via Terraform) to this target group
 
-Port: 8000
+➡️ Once created, copy the **DNS name of the ALB** and paste it into your browser — your Python app should be accessible now!
 
-Health check path: /
 
-💡 Make sure the health check port (8000) is allowed in private EC2 SG.
 
-📎 Register Targets:
-Attach your Auto Scaling Group EC2 instances to the target group
-
-🌍 Access Your App
-Once setup is done, visit the DNS Name of your ALB:
-
-cpp
 Copy
 Edit
 http://<Your-ALB-DNS-Name>
