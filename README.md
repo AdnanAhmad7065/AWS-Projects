@@ -1,4 +1,4 @@
-# AWS-Projects
+# AWS-Infra using terraform
 AWS Infrastructure using Terraform
 This project automates the provisioning of AWS resources using Terraform. It creates a custom VPC, Subnets, Internet Gateway, Route Tables, and EC2 Instances with automated configuration.
 
